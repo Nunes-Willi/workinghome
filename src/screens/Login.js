@@ -1,48 +1,94 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { Text, TextInput, StyleSheet, View, Image, } from 'react-native';
+import { Button, Card } from 'react-native-paper';
 
-const LoginScreen = ( navigation ) => {
+import Logo from '../../icons/LogoFundoAzul.png'
+import Google from '../../icons/google.png'
+import Facebook from '../../icons/facebook.png'
+
+export default function Cadastro ({ navigation }) {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.button}>
-          <Text>Opções</Text>
-        </TouchableOpacity>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="kkkkk..."
-          placeholderTextColor="#999"
-        />
-      </View>
-      
-    </ScrollView>
+    <View style={styles.container}>
+        <Image source={Logo} style={styles.image}>
+        </Image>
+      <Card style={styles.card}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}> Cadastre-se </Text>
+        </View>
+        <View>
+          <TextInput type="text" name="name" placeholder='Nome:' style={styles.input}/>
+          <TextInput type="email" name="email" placeholder='Email:' style={styles.input}/>
+          <TextInput type="password" name="senha" placeholder='Senha:' style={styles.input}/>
+          <TextInput type="password" name="Confirme-Senha" placeholder='Confirme a senha:' style={styles.input}/>      
+        </View>
+        <View>
+          <Image>
+          </Image>
+          <Image>
+          </Image>
+        </View>
+          <View style={{alignItems: 'center', margin: 10,}}>
+          <Text>
+            Já possui conta?
+            <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
+              Clique Aqui
+            </Text> 
+          </Text>
+        </View>
+        <View style={{alignItems: 'center',}}>
+          <Button mode="elevated" onPress={() => navigation.navigate('Home')} style={styles.botao}>
+            <Text style={{color: '#FF5F0F',}}>Enviar</Text>
+          </Button>
+        </View>
+      </Card>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 16,
-    paddingTop: 50,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    justifyContent: 'center',
+    paddingTop: 10,
+    backgroundColor: '#3B8AEB',
   },
-  button: {
+
+  image:{
+    height: 180,
+    width: 180,
+  },
+
+  card: {
+    backgroundColor: '#FFFFFF',
+    width: '80%',
     padding: 10,
+    marginTop: 10,
   },
-  searchBar: {
-    flex: 1,
-    height: 40,
-    backgroundColor: '#eee',
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    marginHorizontal: 10,
+
+  titleContainer: {
+    alignItems: 'center',
+  },
+
+  title: {
+    fontWeight: 'bold',
+    color: '#FF5F0F',
+  },
+
+  input: {
+    backgroundColor: '#EEEEEE',
+    borderRadius: 12,
+    margin: 10,
+    width: '90%',
+  },
+
+  botao: {
+    width: 130,
+    backgroundColor: '#6304AE',
+  },
+
+  link: {
+    color: '#FF5F0F',
   },
 });
-
-export default LoginScreen;
