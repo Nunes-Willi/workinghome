@@ -9,7 +9,7 @@ import Facebook from '../../icons/facebook.png'
 export default function Cadastro ({ navigation }) {
   return (
     <View style={styles.container}>
-        <Image source={Logo} style={styles.image}>
+        <Image source={Logo} style={styles.logo}>
         </Image>
       <Card style={styles.card}>
         <View style={styles.titleContainer}>
@@ -21,10 +21,10 @@ export default function Cadastro ({ navigation }) {
           <TextInput type="password" name="senha" placeholder='Senha:' style={styles.input}/>
           <TextInput type="password" name="Confirme-Senha" placeholder='Confirme a senha:' style={styles.input}/>      
         </View>
-        <View>
-          <Image>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly',}}>
+          <Image source={Facebook} style={styles.image}>
           </Image>
-          <Image>
+          <Image source={Google} style={styles.image}>
           </Image>
         </View>
           <View style={{alignItems: 'center', margin: 10,}}>
@@ -37,7 +37,7 @@ export default function Cadastro ({ navigation }) {
         </View>
         <View style={{alignItems: 'center',}}>
           <Button mode="elevated" onPress={() => navigation.navigate('Home')} style={styles.botao}>
-            <Text style={{color: '#FF5F0F',}}>Enviar</Text>
+            <Text style={{color: '#FF5F0F',}}>Enviar!</Text>
           </Button>
         </View>
       </Card>
@@ -51,13 +51,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 10,
     backgroundColor: '#3B8AEB',
   },
 
-  image:{
+  logo: {
     height: 180,
     width: 180,
+  },
+
+  image: {
+    width: 60,
+    height: 60,
   },
 
   card: {
