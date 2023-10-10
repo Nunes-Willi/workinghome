@@ -1,20 +1,26 @@
+import React from 'react';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+import HomeScreen from './src/screens/Home';
+import LoginScreen from './src/screens/Login';
+
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Não sei como tu quer cmc, ent deixo o inicio nas suas mãos pnc</Text>
-      <StatusBar style="auto" />
-    </View>
+      <PaperProvider>
+        <NavigationContainer>
+        <StatusBar hidden={true}/>
+          <Stack.Navigator screenOptions={{ headerShown: false}}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Login" component={LoginScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
