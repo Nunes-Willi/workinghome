@@ -16,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
       location: 'São Paulo',
       age: 30,
       price: 'R$ 50/hora',
+      image: URL = "google.com",
     },
     {
       id:2,
@@ -111,8 +112,7 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity
           key={index}
           style={styles.card}
-          onPress={() => {
-          }}
+          onPress={() => navigation.navigate("Detail")}
         >
           <Text style={styles.cardText}>{`Nome: ${person.name}`}</Text>
           <Text style={styles.cardText}>{`Trabalho Doméstico: ${person.jobType}`}</Text>
