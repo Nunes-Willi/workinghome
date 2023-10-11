@@ -1,12 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView,Image } from 'react-native';
+import { Button, Card } from 'react-native-paper';
+
+import Engrenagem from '../../icons/engrenagem.png'
+import Login from '../../icons/login.png'
+
+
 
 const HomeScreen = ({ navigation }) => {
+  const people = [
+    {
+      name: 'Maria Silva',
+      jobType: 'Limpeza',
+      location: 'São Paulo',
+      age: 30,
+      price: 'R$ 50/hora',
+    },
+    {
+      name: 'João Oliveira',
+      jobType: 'Cozinhar',
+      location: 'Rio de Janeiro',
+      age: 28,
+      price: 'R$ 40/hora',
+    },
+  ];
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.button}>
-          <Text>Opções</Text>
+          <Image source={Engrenagem} style={styles.image}></Image>
         </TouchableOpacity>
         <TextInput
           style={styles.searchBar}
@@ -14,10 +37,24 @@ const HomeScreen = ({ navigation }) => {
           placeholderTextColor="#999"
         />
         <TouchableOpacity onPress={() => navigation.navigate("Login")} style={styles.button}>
-          <Text>Perfil</Text>
+          <Image source={Login} style={styles.image}></Image>
         </TouchableOpacity>
       </View>
       
+      {people.map((person, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.card}
+          onPress={() => {
+          }}
+        >
+          <Text style={styles.cardText}>{`Nome: ${person.name}`}</Text>
+          <Text style={styles.cardText}>{`Trabalho Doméstico: ${person.jobType}`}</Text>
+          <Text style={styles.cardText}>{`Localidade: ${person.location}`}</Text>
+          <Text style={styles.cardText}>{`Idade: ${person.age} anos`}</Text>
+          <Text style={styles.cardText}>{`Preço: ${person.price}`}</Text>
+        </TouchableOpacity>
+      ))}
     </ScrollView>
   );
 };
@@ -25,7 +62,7 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#3B8AEB',
     paddingHorizontal: 16,
     paddingTop: 50,
   },
@@ -45,6 +82,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 16,
     marginHorizontal: 10,
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 10,
+  },
+  cardText: {
+    fontSize: 13,
+  },
+  image: {
+    width: 25,
+    height: 25,
   },
 });
 
