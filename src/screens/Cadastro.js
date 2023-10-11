@@ -6,7 +6,7 @@ import Logo from '../../icons/LogoFundoAzul.png'
 import Google from '../../icons/google.png'
 import Facebook from '../../icons/facebook.png'
 
-export default function Login ({ navigation }) {
+export default function Cadastro ({ navigation }) {
   return (
     <View style={styles.container}>
         <Image source={Logo} style={styles.logo}>
@@ -20,16 +20,18 @@ export default function Login ({ navigation }) {
               marginTop: 15,
               marginBottom: 15,
             }}> 
-              Login 
+              Cadastre-se 
           </Text>
         </View>
       <Card style={styles.card}>
         <View>
+          <TextInput type="text" name="name" placeholder='  Nome:' placeholderTextColor="#9F9F9F" style={styles.input}/>
           <TextInput type="email" name="email" placeholder='  Email:' placeholderTextColor="#9F9F9F" style={styles.input}/>
-          <TextInput type="password" name="senha" placeholder='  Senha:' placeholderTextColor="#9F9F9F" style={styles.input}/>      
+          <TextInput type="password" name="senha" placeholder='  Senha:' placeholderTextColor="#9F9F9F" style={styles.input}/>
+          <TextInput type="password" name="Confirme-Senha" placeholder='  Confirme a senha:' placeholderTextColor="#9F9F9F" style={styles.input}/>      
         </View>
           <View style={{alignItems: 'center', paddingTop: 5, paddingBottom: 15,}}>
-            <Text style={{color: '#837F7F',}}>---------- Outras maneiras de login ----------</Text>
+            <Text style={{color: '#837F7F',}}>---------- Outras maneiras de cadastro ----------</Text>
           </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly',}}>
           <Image source={Facebook} style={styles.image}>
@@ -39,8 +41,8 @@ export default function Login ({ navigation }) {
         </View>
         <View style={{alignItems: 'center', margin: 10, }}>
           <Text style={{color: '#837F7F'}}>
-            Não possui conta?
-            <Text style={styles.link} onPress={() => navigation.navigate('Cadastro')}>
+            Já possui conta?
+            <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
               Clique Aqui
             </Text> 
           </Text>

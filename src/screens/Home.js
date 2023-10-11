@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
           placeholder="Pesquisar..."
           placeholderTextColor="#999"
         />
-        <TouchableOpacity onPress={() => navigation.navigate("Login")} style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate("Cadastro")} style={styles.button}>
           <Image source={Login} style={styles.image}></Image>
         </TouchableOpacity>
       </View>
