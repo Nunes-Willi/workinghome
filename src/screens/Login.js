@@ -92,9 +92,6 @@ const styles = StyleSheet.create({
 
   titleContainer: {
     alignItems: 'center',
-    // paddingBottom: 0,
-    // paddingTop: 0,
-    // backgroundColor: 'red',
     width: '80%',
   },
 
@@ -116,7 +113,6 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    // backgroundColor: 'red',
     padding: 12,
     alignItems: 'center',
   },
