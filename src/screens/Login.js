@@ -11,24 +11,36 @@ export default function Cadastro ({ navigation }) {
     <View style={styles.container}>
         <Image source={Logo} style={styles.logo}>
         </Image>
-      <Card style={styles.card}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}> Cadastre-se </Text>
+          <Text 
+            style={{  
+              fontWeight: 'bold',
+              fontSize: 26,
+              color: '#FFFFFF',
+              marginTop: 15,
+              marginBottom: 15,
+            }}> 
+              Cadastre-se 
+          </Text>
         </View>
+      <Card style={styles.card}>
         <View>
-          <TextInput type="text" name="name" placeholder='Nome:' style={styles.input}/>
-          <TextInput type="email" name="email" placeholder='Email:' style={styles.input}/>
-          <TextInput type="password" name="senha" placeholder='Senha:' style={styles.input}/>
-          <TextInput type="password" name="Confirme-Senha" placeholder='Confirme a senha:' style={styles.input}/>      
+          <TextInput type="text" name="name" placeholder='  Nome:' placeholderTextColor="#9F9F9F" style={styles.input}/>
+          <TextInput type="email" name="email" placeholder='  Email:' placeholderTextColor="#9F9F9F" style={styles.input}/>
+          <TextInput type="password" name="senha" placeholder='  Senha:' placeholderTextColor="#9F9F9F" style={styles.input}/>
+          <TextInput type="password" name="Confirme-Senha" placeholder='  Confirme a senha:' placeholderTextColor="#9F9F9F" style={styles.input}/>      
         </View>
+          <View style={{alignItems: 'center', paddingTop: 5, paddingBottom: 15,}}>
+            <Text style={{color: '#837F7F',}}>---------- Outras maneiras de cadastro ----------</Text>
+          </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly',}}>
           <Image source={Facebook} style={styles.image}>
           </Image>
           <Image source={Google} style={styles.image}>
           </Image>
         </View>
-          <View style={{alignItems: 'center', margin: 10,}}>
-          <Text>
+        <View style={{alignItems: 'center', margin: 10, }}>
+          <Text style={{color: '#837F7F'}}>
             Já possui conta?
             <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
               Clique Aqui
@@ -37,10 +49,18 @@ export default function Cadastro ({ navigation }) {
         </View>
         <View style={{alignItems: 'center',}}>
           <Button mode="elevated" onPress={() => navigation.navigate('Home')} style={styles.botao}>
-            <Text style={{color: '#FF5F0F',}}>Enviar!</Text>
+            <Text style={{color: '#3B8AEB',}}>Enviar!</Text>
           </Button>
         </View>
       </Card>
+      <View style={styles.footer}>
+        <Text style={{fontSize: 12, color: '#FFFFFF',}}>
+          Termos de privacidade          
+        </Text>
+        <Text style={{fontSize: 10, color: '#FFFFFF',}}>
+          @2023 Working House
+        </Text>
+      </View>
     </View>
   );
 }
@@ -60,8 +80,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 60,
-    height: 60,
+    width: 35,
+    height: 35,
   },
 
   card: {
@@ -69,15 +89,15 @@ const styles = StyleSheet.create({
     width: '80%',
     padding: 10,
     marginTop: 10,
+    marginBottom: 40,
   },
 
   titleContainer: {
     alignItems: 'center',
-  },
-
-  title: {
-    fontWeight: 'bold',
-    color: '#FF5F0F',
+    // paddingBottom: 0,
+    // paddingTop: 0,
+    // backgroundColor: 'red',
+    width: '80%',
   },
 
   input: {
@@ -89,10 +109,17 @@ const styles = StyleSheet.create({
 
   botao: {
     width: 130,
-    backgroundColor: '#6304AE',
+    backgroundColor: '#FFFFFF',
+    marginBottom: 10,
   },
 
   link: {
-    color: '#FF5F0F',
+    color: '#3B8AEB',
+  },
+
+  footer: {
+    // backgroundColor: 'red',
+    padding: 12,
+    alignItems: 'center',
   },
 });
