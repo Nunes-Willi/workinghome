@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-  Image,
-} from "react-native";
+import {  View,  Text,  StyleSheet,  TouchableOpacity,  TextInput,  ScrollView,  Image,} from "react-native";
 import { Button, Card } from "react-native-paper";
 
+import dnaGertrudes from "../../assets/dnaGertrudes.png";
 import Engrenagem from "../../icons/engrenagem.png";
 import Login from "../../icons/login.png";
 
@@ -17,91 +10,73 @@ const HomeScreen = ({ navigation }) => {
   const people = [
     {
       id: 1,
-      name: "Maria Silva",
+      name: "Dna. Gertrudes",
       jobType: "Limpeza",
+      location: "Av. Gertulio Vargas 369 - Joinville SC",
+      age: 72,
+      price: "R$ 110/Diária",
+      image:
+        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+    },
+    {
+      id: 2,
+      name: "João Oliveira",
+      jobType: "Cozinhar",
+      location: "Rio de Janeiro",
+      age: 28,
+      price: "R$ 40/hora",
+      image:
+        "https://img.freepik.com/fotos-gratis/chef-profissional-cozinheiro-em-uniforme-branco-e-chapeu-de-cozinheiro-apontando-para-o-lado-com-o-dedo-indicador-parecendo-confiante-em-pe-sobre-um-fundo-branco_141793-20622.jpg?",
+    },
+    {
+      id: 3,
+      name: "Therezinha Gertrudes Pires",
+      jobType: "Babá",
+      location: "São Paulo",
+      age: 70,
+      price: "R$ 100/mês",
+      image:
+        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+    },
+    {
+      id: 4,
+      name: "Mario Bros",
+      jobType: "Encanador",
       location: "São Paulo",
       age: 30,
-      price: "R$ 50/hora",
+      price: "R$ 35/hora",
       image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+        "https://maridodealuguel.com.br/wp-content/uploads/2021/12/352-3524981_plumbing-plumbing-man.png",
     },
     {
-      id:2,
-      name: 'João Oliveira',
-      jobType: 'Cozinhar',
-      location: 'Rio de Janeiro',
-      age: 28,
-      price: 'R$ 40/hora',
+      id: 5,
+      name: "Paula Vieira",
+      jobType: "Cozinhar",
+      location: "São Paulo",
+      age: 34,
+      price: "R$ 70/hora",
       image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
-    },
-    {
-      id:3,
-      name: 'Therezinha Gertrudes Pires',
-      jobType: 'Babá',
-      location: 'São Paulo',
-      age: 70,
-      price: 'R$ 100/mês',
-      image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
-    },
-    {
-      id:4,
-      name: 'Mario Bros',
-      jobType: 'Encanador',
-      location: 'São Paulo',
-      age: 30,
-      price: 'R$ 35/hora',image:
-      "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
-    },
-    {
-      id:5,
-      name: 'Paula Vieira',
-      jobType: 'Cozinhar',
-      location: 'São Paulo',
-      age: 72,
-      price: 'R$ 70/hora',
-      image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+        "https://blog.unifil.br/wp-content/uploads/shutterstock_1889627056.jpg",
     },
     {
       id: 6,
-      name: 'Luigi Bros',
-      jobType: 'Controle de Pragas',
-      location: 'São Paulo',
+      name: "Luigi Bros",
+      jobType: "Controle de Pragas",
+      location: "São Paulo",
       age: 48,
-      price: 'R$ 67/hora',
+      price: "R$ 67/hora",
       image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc5E_v2LaL7I1RirG84CsXEpL2qdUpvPxCKg&usqp=CAU",
     },
     {
-      id:7,
-      name: 'Pedro Silva',
-      jobType: 'Limpeza de calha',
-      location: 'São Paulo',
+      id: 7,
+      name: "Pedro Silva",
+      jobType: "Limpeza de calha",
+      location: "São Paulo",
       age: 33,
-      price: 'R$ 50/hora',
+      price: "R$ 50/hora",
       image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
-    },
-    {
-      ide:8,
-      name: 'Phelipe Moser',
-      jobType: 'Tira pó',
-      location: 'São Paulo',
-      age: 19,
-      price: 'R$ 70/hora',image:
-      "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
-    },
-    {
-      id:9,
-      name: 'Wagner Nunes',
-      jobType: 'Cozinheiro',
-      location: 'São Paulo',
-      age: 39,
-      price: 'R$ 114/hora',
-      image:
-        "https://img.freepik.com/fotos-premium/retrato-de-uma-velha-segurando-dinheiro-isolado_246836-889.jpg",
+        "https://img.freepik.com/fotos-premium/retrato-de-uma-velhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvwa8vu5oInEGAynvtgJTK-t9_z8nTC9jAww&usqp=CAUha-segurando-dinheiro-isolado_246836-889.jpg",
     },
   ];
 
@@ -130,7 +105,10 @@ const HomeScreen = ({ navigation }) => {
           style={styles.card}
           onPress={() => navigation.navigate("Detail")}
         >
-          <Image source={{ uri: person.image }} style={styles.cardImage} />
+          <Image
+            source={person.id === 1 ? dnaGertrudes : { uri: person.image }}
+            style={styles.cardImage}
+          />
           <View style={styles.cardTextContainer}>
             <Text style={styles.cardText}>{`Nome: ${person.name}`}</Text>
             <Text
@@ -139,8 +117,17 @@ const HomeScreen = ({ navigation }) => {
             <Text
               style={styles.cardText}
             >{`Localidade: ${person.location}`}</Text>
-            <Text style={styles.cardText}>{`Idade: ${person.age} anos`}</Text>
+            {/* <Text style={styles.cardText}>{`Idade: ${person.age} anos`}</Text> */}
             <Text style={styles.cardText}>{`Preço: ${person.price}`}</Text>
+            <Text
+              style={{ color: "#837F7F", fontWeight: "bold", marginTop: 20 }}
+            >
+              5.0 ⭐ ⭐ ⭐ ⭐ ⭐
+              <Text style={{ color: "#9F9F9F", fontSize: 11 }}>
+                {" "}
+                52 avaliações{" "}
+              </Text>
+            </Text>
           </View>
         </TouchableOpacity>
       ))}
