@@ -41,16 +41,13 @@ export default function Detail ({ navigation }) {
       </View>
       <View style={styles.footer}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image source={Voltar} style={{width: 70, height: 70, marginLeft: 10, marginTop: 17,}}></Image>
+          <Image source={Voltar} style={{width: 45, height: 45, marginLeft: 10, marginTop: 17,}}></Image>
         </TouchableOpacity>
         <View style={styles.contrato}>
-          <Text style={{ color: '#837F7F', fontSize: 16,}}>
-            Contratar serviços
-          </Text>
           <Text style={{ color: '#3B8AEB', fontSize: 22,}}>
             R$110,00
           </Text>
-          <Text style={{ color: '#837F7F', fontSize: 16,}}>
+          <Text style={{ color: '#837F7F', fontSize: 17,}}>
             Diária
           </Text>
         </View>
@@ -88,7 +85,7 @@ const styles = StyleSheet.create({
   main: {
     backgroundColor: '#FFFFFF',
     width: '100%',
-    height: '62%',
+    height: '66%',
   },
 
   texto: {
@@ -110,7 +107,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#3B8AEB',
     width: '100%',
-    height: '13%',
+    height: '9%',
     borderTopRightRadius: 22,
     borderTopLeftRadius: 22,
   },
@@ -119,7 +116,7 @@ const styles = StyleSheet.create({
     width: '42%',
     height: '70%', 
     marginRight: 10, 
-    marginTop: 17, 
+    marginTop: 12, 
     borderRadius: 20,
     alignItems: 'center', 
     backgroundColor: '#FFFFFF',
