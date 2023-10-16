@@ -104,7 +104,7 @@ const HomeScreen = ({ navigation }) => {
           key={index}
           style={styles.card}
           onPress={() => navigation.navigate("Detail")}
-        >
+        >                           
           <Image
             source={person.id === 1 ? dnaGertrudes : { uri: person.image }}
             style={styles.cardImage}
@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   cardImage: {
-    width: 100,
-    height: 100,
+    width: '27%',
+    height: '95%',
     borderRadius: 10,
   },
   cardTextContainer: {
