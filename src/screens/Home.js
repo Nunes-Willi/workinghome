@@ -1,10 +1,19 @@
 import React from "react";
-import {  View,  Text,  StyleSheet,  TouchableOpacity,  TextInput,  ScrollView,  Image,} from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  Image,
+} from "react-native";
 import { Button, Card } from "react-native-paper";
 
 import dnaGertrudes from "../../assets/dnaGertrudes.png";
 import Engrenagem from "../../icons/engrenagem.png";
 import Login from "../../icons/login.png";
+import MapSreen from "../../components/App";
 
 const HomeScreen = ({ navigation }) => {
   const people = [
@@ -81,57 +90,60 @@ const HomeScreen = ({ navigation }) => {
   ];
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.button}>
-          <Image source={Engrenagem} style={styles.image}></Image>
-        </TouchableOpacity>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Pesquisar..."
-          placeholderTextColor="#999"
-        />
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Cadastro")}
-          style={styles.button}
-        >
-          <Image source={Login} style={styles.image}></Image>
-        </TouchableOpacity>
-      </View>
-
-      {people.map((person, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.card}
-          onPress={() => navigation.navigate("Detail")}
-        >                           
-          <Image
-            source={person.id === 1 ? dnaGertrudes : { uri: person.image }}
-            style={styles.cardImage}
+    <>
+      <MapSreen />
+      <ScrollView style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.button}>
+            <Image source={Engrenagem} style={styles.image}></Image>
+          </TouchableOpacity>
+          <TextInput
+            style={styles.searchBar}
+            placeholder="Pesquisar..."
+            placeholderTextColor="#999"
           />
-          <View style={styles.cardTextContainer}>
-            <Text style={styles.cardText}>{`Nome: ${person.name}`}</Text>
-            <Text
-              style={styles.cardText}
-            >{`Trabalho Doméstico: ${person.jobType}`}</Text>
-            <Text
-              style={styles.cardText}
-            >{`Localidade: ${person.location}`}</Text>
-            {/* <Text style={styles.cardText}>{`Idade: ${person.age} anos`}</Text> */}
-            <Text style={styles.cardText}>{`Preço: ${person.price}`}</Text>
-            <Text
-              style={{ color: "#837F7F", fontWeight: "bold", marginTop: 20 }}
-            >
-              5.0 ⭐ ⭐ ⭐ ⭐ ⭐
-              <Text style={{ color: "#9F9F9F", fontSize: 11 }}>
-                {" "}
-                52 avaliações{" "}
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Cadastro")}
+            style={styles.button}
+          >
+            <Image source={Login} style={styles.image}></Image>
+          </TouchableOpacity>
+        </View>
+
+        {people.map((person, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.card}
+            onPress={() => navigation.navigate("Detail")}
+          >
+            <Image
+              source={person.id === 1 ? dnaGertrudes : { uri: person.image }}
+              style={styles.cardImage}
+            />
+            <View style={styles.cardTextContainer}>
+              <Text style={styles.cardText}>{`Nome: ${person.name}`}</Text>
+              <Text
+                style={styles.cardText}
+              >{`Trabalho Doméstico: ${person.jobType}`}</Text>
+              <Text
+                style={styles.cardText}
+              >{`Localidade: ${person.location}`}</Text>
+              {/* <Text style={styles.cardText}>{`Idade: ${person.age} anos`}</Text> */}
+              <Text style={styles.cardText}>{`Preço: ${person.price}`}</Text>
+              <Text
+                style={{ color: "#837F7F", fontWeight: "bold", marginTop: 20 }}
+              >
+                5.0 ⭐ ⭐ ⭐ ⭐ ⭐
+                <Text style={{ color: "#9F9F9F", fontSize: 11 }}>
+                  {" "}
+                  52 avaliações{" "}
+                </Text>
               </Text>
-            </Text>
-          </View>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </>
   );
 };
 
@@ -167,8 +179,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   cardImage: {
-    width: '27%',
-    height: '95%',
+    width: "27%",
+    height: "95%",
     borderRadius: 10,
   },
   cardTextContainer: {
