@@ -8,14 +8,13 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import { Button, Card } from "react-native-paper";
 
 import dnaGertrudes from "../../assets/dnaGertrudes.png";
 import Engrenagem from "../../icons/engrenagem.png";
 import Login from "../../icons/login.png";
 import MapSreen from "../../components/App";
 
-const HomeScreen = ({ navigation }) => {
+export default function HomeScreen ({ navigation }) {
   const people = [
     {
       id: 1,
@@ -91,8 +90,6 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <>
-      <MapSreen />
-      <ScrollView style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.button}>
             <Image source={Engrenagem} style={styles.image}></Image>
@@ -103,12 +100,14 @@ const HomeScreen = ({ navigation }) => {
             placeholderTextColor="#999"
           />
           <TouchableOpacity
-            onPress={() => navigation.navigate("Cadastro")}
+            onPress={() => navigation.navigate("Login")}
             style={styles.button}
           >
             <Image source={Login} style={styles.image}></Image>
           </TouchableOpacity>
         </View>
+      <MapSreen />
+      <ScrollView style={styles.container}>
 
         {people.map((person, index) => (
           <TouchableOpacity
@@ -158,15 +157,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   button: {
     padding: 10,
+    backgroundColor: 'trasparent',
+    borderRadius: 40,
   },
   searchBar: {
     flex: 1,
     height: 35,
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     borderRadius: 20,
     paddingHorizontal: 16,
     marginHorizontal: 10,
@@ -193,7 +194,9 @@ const styles = StyleSheet.create({
   image: {
     width: 30,
     height: 30,
+    backgroundColor:"#3B8AEB", 
+    borderRadius: 30,
   },
 });
 
-export default HomeScreen;
+
