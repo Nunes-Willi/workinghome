@@ -101,14 +101,13 @@ export default function HomeScreen ({ navigation }) {
           />
           <TouchableOpacity
             onPress={() => navigation.navigate("Login")}
-            style={styles.button}
+            style={styles.buttonLogin}
           >
-            <Image source={Login} style={styles.image}></Image>
+            <Image source={Login} style={styles.imageLogin}></Image>
           </TouchableOpacity>
         </View>
       <MapSreen />
       <ScrollView style={styles.container}>
-
         {people.map((person, index) => (
           <TouchableOpacity
             key={index}
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#3B8AEB",
     paddingHorizontal: 16,
-    paddingTop: 50,
+    paddingTop: 25,
   },
   header: {
     flexDirection: "row",
@@ -160,6 +159,11 @@ const styles = StyleSheet.create({
     // marginBottom: 20,
   },
   button: {
+    padding: 10,
+    backgroundColor: 'transparent',
+    borderRadius: 40,
+  },
+  buttonLogin: {
     padding: 10,
     backgroundColor: 'trasparent',
     borderRadius: 40,
@@ -191,11 +195,24 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 13,
   },
+  imageLogin: {
+    width: 32,
+    height: 32,
+    backgroundColor: "#3B8AEB", 
+    borderRadius: 30,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: '#3B8AEB',
+  },
   image: {
     width: 30,
     height: 30,
-    backgroundColor:"#3B8AEB", 
+    padding: 10,
     borderRadius: 30,
+    backgroundColor: '#3B8AEB',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#3B8AEB',
   },
 });
 
