@@ -19,7 +19,7 @@ export default function HomeScreen ({ navigation }) {
   const [people, setPeople] = React.useState([]);
 
   const getPeople = async () => {
-    const {data} = await api.get('/people/')
+    const {data} = await api.get('people/')
     setPeople(data)
   }
 
@@ -27,6 +27,9 @@ export default function HomeScreen ({ navigation }) {
     getPeople()
   }, [])
 
+  const handleAlert = () => {
+    alert("Em desenvolvimento");
+  };
   // const people = [
   //   {
     //   id: 1,
@@ -99,11 +102,11 @@ export default function HomeScreen ({ navigation }) {
     //     "https://img.freepik.com/fotos-premium/retrato-de-uma-velhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvwa8vu5oInEGAynvtgJTK-t9_z8nTC9jAww&usqp=CAUha-segurando-dinheiro-isolado_246836-889.jpg",
     // },
   // ];
-
+  
   return (
     <>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleAlert} style={styles.button}>
             <Image source={Engrenagem} style={styles.image}></Image>
           </TouchableOpacity>
           <TextInput
@@ -127,26 +130,25 @@ export default function HomeScreen ({ navigation }) {
             onPress={() => navigation.navigate("Detail")}
           >
             <Image
-              source={{ uri: people.foto }}
+              source={{ uri: people.foto.url }}
               style={styles.cardImage}
             />
             <View style={styles.cardTextContainer}>
-              <Text style={styles.cardText}>{`Nome: ${people.name}`}</Text>
+              <Text style={styles.cardText}>{people.nome}</Text>
               <Text
                 style={styles.cardText}
-              >{`Trabalho Doméstico: ${people.servico}`}</Text>
+              >{people.servico}</Text>
               <Text
                 style={styles.cardText}
-              >{`Localidade: ${people.local}`}</Text>
-              <Text style={styles.cardText}>{`Idade: ${people.idade} anos`}</Text>
-              <Text style={styles.cardText}>{`Preço: ${people.valor}`}</Text>
+              >{people.local}</Text>
+              <Text style={styles.cardText}>{people.idade}</Text>
+              <Text style={styles.cardText}>R${people.valor.replace('.',',')}</Text>
               <Text
                 style={{ color: "#837F7F", fontWeight: "bold", marginTop: 20 }}
               >
                 5.0 ⭐ ⭐ ⭐ ⭐ ⭐
                 <Text style={{ color: "#9F9F9F", fontSize: 11 }}>
-                  {" "}
-                  52 avaliações{" "}
+                  52 avaliações
                 </Text>
               </Text>
             </View>

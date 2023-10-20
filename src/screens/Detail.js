@@ -67,12 +67,12 @@ export default function Detail({ navigation }) {
             style={{ width: 45, height: 45, marginLeft: 10, marginTop: 17 }}
           ></Image>
         </TouchableOpacity>
-        <View style={styles.contrato}>
-          <TouchableOpacity onPress={handleAlert}>
+        <TouchableOpacity onPress={handleAlert} style={styles.contrato}>
+          <View style={{alignItems: 'center',}}>
             <Text style={{ color: "#3B8AEB", fontSize: 22 }}>R$110,00</Text>
-          </TouchableOpacity>
-          <Text style={{ color: "#837F7F", fontSize: 17 }}>Diária</Text>
-        </View>
+            <Text style={{ color: "#837F7F", fontSize: 17 }}>Diária</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
 
   contrato: {
-    width: "42%",
+    width: "40%",
     height: "70%",
     marginRight: 10,
     marginTop: 12,

@@ -25,8 +25,8 @@ const getRandomCoordinate = (currentLocation) => {
   const deltaY = radius * Math.sin(randomAngle);
 
   // Converte as coordenadas de deslocamento para a nova latitude e longitude
-  const foundLatitude = x0 + (deltaX / earthRadius) * (180 / Math.PI);
-  const foundLongitude = y0 + (deltaY / earthRadius) * (180 / Math.PI) / Math.cos(x0 * Math.PI / 180);
+  const foundLatitude = x0 + (deltaX / earthRadius) * (60 / Math.PI);
+  const foundLongitude = y0 + (deltaY / earthRadius) * (90 / Math.PI) / Math.cos(x0 * Math.PI / 700);
 
   return { latitude: foundLatitude, longitude: foundLongitude };
 };
