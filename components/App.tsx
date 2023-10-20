@@ -11,37 +11,31 @@ import {
 
 import { styles } from "./styles";
 
-const getRandomCoordinate = (currentLocation: { coords: any; timestamp?: number; mocked?: boolean | undefined; }) => {
+const getRandomCoordinate = (currentLocation) => {
   const earthRadius = 6378.1; // em quilômetros
-  const radius = 2 + Math.random() * (5 - 2); // raio entre 2 e 5 km
+  const radius = 2 + Math.random() * (3 - 2); // raio entre 2 e 5 km
   const x0 = currentLocation.coords.latitude;
   const y0 = currentLocation.coords.longitude;
 
-  // Converte o raio de quilômetros para graus
-  const radiusInDegrees = radius / earthRadius;
-
   // Gera um ângulo aleatório em radianos
-  const u = Math.random();
-  const v = Math.random();
-  const w = radiusInDegrees * Math.sqrt(u);
-  const t = 2 * Math.PI * v;
-  const x = w * Math.cos(t);
-  const y = w * Math.sin(t);
+  const randomAngle = Math.random() * Math.PI * 2;
+
+  // Gera um deslocamento aleatório para latitude e longitude
+  const deltaX = radius * Math.cos(randomAngle);
+  const deltaY = radius * Math.sin(randomAngle);
 
   // Converte as coordenadas de deslocamento para a nova latitude e longitude
-  const newX = x / Math.cos(y0);
-
-  const foundLatitude = newX + x0;
-  const foundLongitude = y + y0;
+  const foundLatitude = x0 + (deltaX / earthRadius) * (180 / Math.PI);
+  const foundLongitude = y0 + (deltaY / earthRadius) * (180 / Math.PI) / Math.cos(x0 * Math.PI / 180);
 
   return { latitude: foundLatitude, longitude: foundLongitude };
 };
 
 export default function MapScreen() {
-  const [location, setLocation] = useState<LocationObject | null>(null);
+  const [location, setLocation] = useState(null);
   const [nearbyLocations, setNearbyLocations] = useState([]);
 
-  const mapRef = useRef<MapView>(null);
+  const mapRef = useRef(null);
 
   async function requestForegroundPermissions() {
     const { granted } = await requestForegroundPermissionsAsync();
@@ -114,4 +108,4 @@ export default function MapScreen() {
       )}
     </View>
   );
-}
+};
