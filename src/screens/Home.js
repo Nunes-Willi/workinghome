@@ -18,8 +18,8 @@ import MapSreen from "../../components/App";
 export default function HomeScreen ({ navigation }) {
   const [people, setPeople] = React.useState([]);
 
-  const getPeople = async () => {
-    const {data} = await api.get('people/')
+  async function getPeople() {
+    const {data} = await api.get('/people/')
     setPeople(data)
   }
 
@@ -130,7 +130,7 @@ export default function HomeScreen ({ navigation }) {
             onPress={() => navigation.navigate("Detail")}
           >
             <Image
-              source={{ uri: people.foto.url }}
+              source={{ uri: people.foto.file }}
               style={styles.cardImage}
             />
             <View style={styles.cardTextContainer}>
